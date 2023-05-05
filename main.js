@@ -54,6 +54,20 @@ nombres.forEach(function(nombres){
 })*/
 
 
+async function getPokemon(id){
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+    const data = await response.json();
+    return data;
+}
+
+
+async function init(){
+    const firstPokemon = await getPokemon(150);
+    console.log(firstPokemon.name);
+    window.pokemon.textContent = firstPokemon.name;
+}
+init();
+
 
 
 
